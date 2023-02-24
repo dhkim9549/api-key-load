@@ -7,3 +7,26 @@ You will create a batch program which will generate an API key from a shell prog
 * https://dev.mysql.com/downloads/[MySQL] version 5.6 or better.
 
 NOTE: https://hevodata.com/learn/installing-mysql-on-ubuntu-20-04/[Installing MySQL on Ubuntu 20.04: 6 Easy Steps]
+
+* Edit spring-boot configuration file:
+
+----
+key-rest-api/complete/src/main/resources/application.properties
+----
+
+* Build a fat jar and run
+
+----
+mvn clean package
+----
+
+----
+java -jar api-key-load-0.1.0.jar key
+----
+
+== See Also
+
+See the following guide for reference:
+
+* https://github.com/spring-guides/gs-rest-service[Building a RESTful Web Service]
+* https://spring.io/guides/gs/accessing-data-mysql/[Accessing data with MySQL]
