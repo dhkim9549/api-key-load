@@ -21,7 +21,7 @@ mvn clean package
 ----
 
 ----
-java -jar target/api-key-load-0.1.0.jar key
+java -jar target/api-key-load-0.1.0.jar
 ----
 
 == See Also
