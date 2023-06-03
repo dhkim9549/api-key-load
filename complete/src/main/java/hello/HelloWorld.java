@@ -22,21 +22,28 @@ public class HelloWorld implements CommandLineRunner {
 	public static String getKey() throws Exception {
 
 		System.out.print(new Date());
-		Process process2 = Runtime.getRuntime().exec("/root/test/api-key-gen/genKey.sh");
+		Process process2 = Runtime.getRuntime().exec("./genKey.sh");
 		String keyStr = printResults(process2);
 		log.info("keyStr = " + keyStr);
 		return keyStr;
         }
 
 	public static String printResults(Process process) throws IOException {
+
+		log.info("printResults() start...");
+
 		BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 		String line = "";
 		String keyStr = "";
 		while ((line = reader.readLine()) != null) {
+			log.info("line = " + line);
 			if(line.indexOf("=>") >= 0) {
 				keyStr = line.substring(line.indexOf("=>") + 2).trim();
 			}
 		}
+
+		log.info("printResults() end...");
+
 		return keyStr;
         }
 
@@ -64,7 +71,7 @@ public class HelloWorld implements CommandLineRunner {
 
 		log.info("etlApiKey() start...");
 
-		for(long i = 0; i < 100000000000L; i++) {
+		for(long i = 0; i < 10000000000000000L; i++) {
 			loadApiKey();
 			Thread.sleep(10000);
 		}
@@ -85,17 +92,7 @@ public class HelloWorld implements CommandLineRunner {
 
 		log.info("run() start...");
 
-		for(String arg:args) {
-                        log.info("!!!>>>" + arg);
-                }
-
-		String work = args[0];
-
-		switch (work) {
-			case "key" :
-				etlApiKey();
-				break;
-		}
+		etlApiKey();
 
 		log.info("run() end...");
 
