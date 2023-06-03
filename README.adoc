@@ -1,6 +1,6 @@
 == What You Will Build
 
-You will create a batch program which will generate an API key from a shell program and store it into MySQL database.
+You will create a batch program which will generate an API key using a shell program and store it into MySQL database.
 
 == What You Need
 
